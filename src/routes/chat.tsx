@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport, type UIMessage } from "ai";
 import { toast } from "sonner";
@@ -68,12 +68,7 @@ function ChatPage() {
   });
 
   const [input, setInput] = useState("");
-  const textareaRef = useRef<HTMLTextAreaElement>(null);
   const isBusy = status === "submitted" || status === "streaming";
-
-  useEffect(() => {
-    textareaRef.current?.focus();
-  }, [status]);
 
   const send = (text: string) => {
     if (!text.trim() || isBusy) return;
@@ -136,7 +131,6 @@ function ChatPage() {
       <div className="pb-4 pt-2">
         <PromptInput onSubmit={handleSubmit}>
           <PromptInputTextarea
-            ref={textareaRef}
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Ask Mal anything about your work..."
