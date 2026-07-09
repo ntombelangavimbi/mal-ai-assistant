@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SummarizerRouteImport } from './routes/summarizer'
 import { Route as PlannerRouteImport } from './routes/planner'
+import { Route as ChatRouteImport } from './routes/chat'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 
@@ -22,6 +23,11 @@ const SummarizerRoute = SummarizerRouteImport.update({
 const PlannerRoute = PlannerRouteImport.update({
   id: '/planner',
   path: '/planner',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChatRoute = ChatRouteImport.update({
+  id: '/chat',
+  path: '/chat',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -37,12 +43,14 @@ const ApiChatRoute = ApiChatRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/chat': typeof ChatRoute
   '/planner': typeof PlannerRoute
   '/summarizer': typeof SummarizerRoute
   '/api/chat': typeof ApiChatRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/chat': typeof ChatRoute
   '/planner': typeof PlannerRoute
   '/summarizer': typeof SummarizerRoute
   '/api/chat': typeof ApiChatRoute
@@ -50,20 +58,22 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/chat': typeof ChatRoute
   '/planner': typeof PlannerRoute
   '/summarizer': typeof SummarizerRoute
   '/api/chat': typeof ApiChatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/planner' | '/summarizer' | '/api/chat'
+  fullPaths: '/' | '/chat' | '/planner' | '/summarizer' | '/api/chat'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/planner' | '/summarizer' | '/api/chat'
-  id: '__root__' | '/' | '/planner' | '/summarizer' | '/api/chat'
+  to: '/' | '/chat' | '/planner' | '/summarizer' | '/api/chat'
+  id: '__root__' | '/' | '/chat' | '/planner' | '/summarizer' | '/api/chat'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ChatRoute: typeof ChatRoute
   PlannerRoute: typeof PlannerRoute
   SummarizerRoute: typeof SummarizerRoute
   ApiChatRoute: typeof ApiChatRoute
@@ -85,6 +95,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PlannerRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/chat': {
+      id: '/chat'
+      path: '/chat'
+      fullPath: '/chat'
+      preLoaderRoute: typeof ChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -104,6 +121,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ChatRoute: ChatRoute,
   PlannerRoute: PlannerRoute,
   SummarizerRoute: SummarizerRoute,
   ApiChatRoute: ApiChatRoute,
