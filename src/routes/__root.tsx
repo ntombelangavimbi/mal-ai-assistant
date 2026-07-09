@@ -80,21 +80,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Mal Workplace Assistant AI" },
+      { title: "Mal Workplace Assistant AI — Your intelligent workplace companion" },
       {
         name: "description",
         content:
-          "Your intelligent workplace companion for organising tasks, summarising meetings, and improving productivity with AI. No account required.",
+          "Summarise meetings, plan tasks, and chat with Mal. A premium, guest-access AI workplace assistant. No account required.",
       },
       { name: "author", content: "Mal Workplace Assistant AI" },
-      { property: "og:title", content: "Mal Workplace Assistant AI" },
+      { property: "og:title", content: "Mal Workplace Assistant AI — Your intelligent workplace companion" },
       {
         property: "og:description",
         content:
-          "A premium, private, guest-access AI workplace companion for summarising meetings, planning tasks, and professional chat.",
+          "Summarise meetings, plan tasks, and chat with Mal. A premium, guest-access AI workplace assistant. No account required.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Mal Workplace Assistant AI — Your intelligent workplace companion" },
+      { name: "twitter:description", content: "Summarise meetings, plan tasks, and chat with Mal. A premium, guest-access AI workplace assistant. No account required." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/8d3aa356-d2ed-4405-b3bc-0b7d2a1bf590/id-preview-35cae160--fecb839d-96f2-4c25-9e7b-937593bfc8f6.lovable.app-1783614762058.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/8d3aa356-d2ed-4405-b3bc-0b7d2a1bf590/id-preview-35cae160--fecb839d-96f2-4c25-9e7b-937593bfc8f6.lovable.app-1783614762058.png" },
     ],
     links: [
       {

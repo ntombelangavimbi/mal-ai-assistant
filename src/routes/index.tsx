@@ -19,11 +19,11 @@ export const Route = createFileRoute("/")({
         content:
           "Summarise meetings, plan tasks, and chat with Mal. A premium, guest-access AI workplace assistant. No account required.",
       },
-      { property: "og:title", content: "Mal Workplace Assistant AI" },
+      { property: "og:title", content: "Mal Workplace Assistant AI — Your intelligent workplace companion" },
       {
         property: "og:description",
         content:
-          "Summarise meetings, plan tasks, and chat with Mal — instantly, no account required.",
+          "Summarise meetings, plan tasks, and chat with Mal. A premium, guest-access AI workplace assistant. No account required.",
       },
     ],
   }),
